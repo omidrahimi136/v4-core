@@ -7,15 +7,15 @@ Uniswap v4 is a new automated market maker protocol that provides extensible and
 
 The contracts in this repo are in early stages - we are releasing the draft code now so that v4 can be built in public, with open feedback and meaningful community contribution. We expect this will be a months-long process, and we appreciate any kind of contribution, no matter how small.
 
-## Contributing
+## Contributings
 
 If you’re interested in contributing please see our [contribution guidelines](./CONTRIBUTING.md)!
 
-## Whitepaper
+## Whitepapers
 
 A more detailed description of Uniswap v4 Core can be found in the draft of the [Uniswap v4 Core Whitepaper](./whitepaper-v4-draft.pdf).
 
-## Architecture
+## Architectures
 
 `v4-core` uses a singleton-style architecture, where all pool state is managed in the `PoolManager.sol` contract. Pool actions can be taken by acquiring a lock on the contract and implementing the `lockAcquired` callback to then proceed with any of the following actions on the pools:
 
@@ -39,7 +39,7 @@ Hooks may also elect to specify fees on swaps, or liquidity withdrawal. Much lik
 
 The fee values, or callback logic, may be updated by the hooks dependent on their implementation. However _which_ callbacks are executed on a pool, including the type of fee or lack of fee, cannot change after  pool initialization.
 
-## Repository Structure
+## Repository Structures
 
 All contracts are held within the `v4-core/contracts` folder.
 
@@ -75,6 +75,7 @@ To integrate with the contracts, the interfaces are available to use:
 
 import {IPoolManager} from 'v4-core/contracts/interfaces/IPoolManager.sol';
 import {ILockCallback} from 'v4-core/contracts/interfaces/callback/ILockCallback.sol';
+import {MyContract} from 'v4-core/contracts/MyContract/IPoolManager.sol';
 
 contract MyContract is ILockCallback {
     IPoolManager poolManager;
